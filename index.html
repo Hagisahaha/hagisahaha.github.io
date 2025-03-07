@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Lời Chúc 8/3</title>
+  <title>Lời Chúc 8/3 - Heart Animation Nâng Cấp</title>
   <style>
     body {
       background: linear-gradient(to right, #FF9A9E, #FAD0C4);
@@ -18,11 +18,29 @@
       font-size: 100px;
       color: red;
       display: none;
-      animation: heartbeat 1s infinite;
     }
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+    /* Lớp kích hoạt animation cho trái tim */
+    .animate-heart {
+      display: block;
+      animation: popIn 1s ease-out forwards;
+    }
+    /* Định nghĩa keyframes cho hiệu ứng popIn */
+    @keyframes popIn {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.2) rotate(20deg);
+        opacity: 1;
+      }
+      80% {
+        transform: scale(0.9) rotate(-10deg);
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+      }
     }
     .message {
       display: none;
@@ -53,8 +71,8 @@
       const heart = document.getElementById('heart');
       const message = document.querySelector('.message');
       
-      // Hiển thị trái tim
-      heart.style.display = 'block';
+      // Thêm lớp để kích hoạt animation "popIn" cho trái tim
+      heart.classList.add('animate-heart');
       
       // Sau 2 giây, hiển thị lời chúc
       setTimeout(function() {
